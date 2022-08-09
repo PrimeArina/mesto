@@ -1,0 +1,24 @@
+.profile-info{
+  display: grid;
+  grid-template-areas: 
+  "name button"
+  "status status";
+  grid-column-gap: 18px;
+  grid-row-gap: 16px;
+  grid-template-columns: max-content;
+  align-self: center;
+  align-items: end;
+  color: white;
+}
+
+@media screen and (min-width: 320px) and (max-width: 900px) {
+  .profile-info{
+    grid-template-areas: 
+    "name button"
+    "status .";
+    grid-column-gap: 10px;
+    grid-row-gap: 14px;
+    grid-template-columns: max-content;
+    justify-items: center;
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+<body>
+  <section class="popup">
+    <div class="popup__background"></div>
+    <div class="popup__block"><button class="popup__button-close opacity"><img class="popup__close-img" src="./images/Close-Icon.png" 
+      alt="Кнопка закрытия формы для изменения профиля."></button>
+      <form class="popup__container">
+       <h3 class="popup__name">Редактировать профиль</h3>
+       <input class="popup__redaction-name popup__font" value="Жак Ив-Кусто">
+       <input class="popup__redaction-status popup__font" value="Исследователь океана">
+       <button class="popup__button-save opacity">Сохранить</button>
+      </form></div>
+  </section>
+  <div class="page">
+    <header class="header">
+    <img src="./images/Logo.png" class="header__logo" alt="Логотип, читаемый как Место Россия.">
+    </header>
+    <main class="content">
+    <section class="profile">
+      <img src="./images/Kusto.jpg" class="profile__avatar" alt="Фото профиля Жак-Ива Кусто.">
+      <div class="profile-info">
+        <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+        <h2 class="profile-info__status">Исследователь океана</h2>
+        <button class="profile-info__edit-button opacity"><img src="./images/Vector-pen.png" 
+          alt="Кнопка для изменения профиля."></button>
+      </div>  
+        <button class="profile__add-button opacity"><img src="./images/Vector-plus.svg" 
+          class="profile__button-img" alt="Кнопка для добавления фотографии."></button>
+    </section>
+    <section class="elements">
+          <div class="element">
+            <img src="./images/Karachaevsk.jpg" class="element__img" alt="Фото древнего храма среди зеленых
+            гор в Карачаевске.">
+            <span class="element__text-group"><p class="element__text">Карачаевск</p>
+               <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+                alt="Кнопка лайка."></button>
+            </span>
+          </div>
+          <div class="element">
+            <img src="./images/Elbrus.png" class="element__img" alt="Фото далекого Эльбруса на фоне заката.">
+            <span class="element__text-group"><p class="element__text">Гора Эльбрус</p>
+              <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+                alt="Кнопка лайка."></button>
+            </span>
+          </div>
+          <div class="element">
+            <img src="./images/Dombai.png" class="element__img" alt="Фото склонов Домбая.">
+            <span class="element__text-group"><p class="element__text">Домбай</p>
+               <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+              alt="Кнопка лайка."></button>
+            </span>
+          </div>
+          <div class="element">
+            <img src="./images/Elbrus.png" class="element__img" alt="Фото далекого Эльбруса на фоне заката.">
+            <span class="element__text-group"><p class="element__text">Гора Эльбрус</p>
+               <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+              alt="Кнопка лайка."></button>
+            </span>
+          </div>
+          <div class="element">
+            <img src="./images/Dombai.png" class="element__img" alt="Фото склонов Домбая.">
+            <span class="element__text-group"><p class="element__text">Домбай</p>
+               <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+              alt="Кнопка лайка."></button>
+            </span>
+          </div>
+          <div class="element">
+            <img src="./images/Karachaevsk.jpg" class="element__img" alt="Фото древнего храма среди зеленых
+            гор в Карачаевске.">
+            <span class="element__text-group"><p class="element__text">Карачаево-Черкессия</p>
+               <button class="element__heart-button opacity"><img src="./images/Vector.svg" 
+              alt="Кнопка лайка."></button>
+            </span>
+          </div>
+    </section>
+    </main>
+    <footer class="footer">
+    <span class="footer__copyright">&copy;2022. Mesto Russia</span>
+    </footer>
+  </div>
+  <script src="./pages/action.js"></script>
+</body>
+</html>
+

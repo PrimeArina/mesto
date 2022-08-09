@@ -1,0 +1,12 @@
+.footer{
+  display:grid;
+  grid-template-columns: minmax(240px, 880px);
+  margin-top: 67px;
+  padding: 0 200px 0 auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+  .footer{
+  padding: 0 19px 0 19px;
+  }
+}

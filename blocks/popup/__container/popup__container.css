@@ -1,0 +1,21 @@
+.popup__container{
+  width: 430px;
+  height: 330px;
+  background-color: #fff;
+  border: #fff;
+  border-radius: 10px;
+  z-index: 1100;
+  display: grid;
+  grid-template-columns: 358px;
+  grid-template-rows: repeat(4, auto);
+  justify-content: center;
+}
+
+@media screen and (min-width: 280px) and (max-width: 500px) {
+  .popup__container{
+  width: 282px;
+  height: 322px;
+  grid-template-columns: 238px;
+  justify-self: end;
+  }
+}

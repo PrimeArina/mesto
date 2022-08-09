@@ -1,0 +1,11 @@
+.content{
+    display:grid;
+    grid-template-columns: minmax(240px, 880px);
+    padding: 40px 0 0 0;
+  }
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .content{
+    padding: 42px 0 0 0;  
+    }
+  }

@@ -1,0 +1,7 @@
+.element__text-group{
+  display: grid;
+  grid-template-columns: 1fr 25px;
+  grid-column-gap: 30px;
+  grid-template-rows: 23px;
+  padding: 25px 15px 31px 21px;
+}

@@ -1,0 +1,15 @@
+.popup__button-close{
+  border: none;
+  padding: 0;
+  height: 32px;
+  background: rgb(000, 000, 000, 0);
+  align-self: end;
+  z-index: 2000;
+}
+
+@media screen and (min-width: 280px) and (max-width: 500px) {
+  .popup__button-close{
+  height: 20px; 
+  justify-self: start;
+  }
+}
