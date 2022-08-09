@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 500px) {
   .footer__copyright{
-    font-size: 14px; 
+    font-size: 14px;
     min-width: 282px;
   }
 }

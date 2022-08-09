@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 280px) and (max-width: 500px) {
   .popup__button-close{
-  height: 20px; 
+  height: 20px;
   justify-self: start;
   }
 }
