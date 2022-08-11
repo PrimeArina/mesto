@@ -1,4 +1,4 @@
-.popup__font{
+.popup__entry-field{
   font-size: 14px;
   font-weight: 400;
   line-height: 100%;
@@ -6,4 +6,5 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  padding-bottom: 13px;
 }

@@ -1,13 +1,19 @@
 .profile-info__status{
     grid-area: status;
     font-size: 18px;
-    line-height: 100%;
-    font-weight: normal;
+    line-height: 22px;
+    font-weight: 400;
     margin:0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 336px;
   }
 
 @media screen and (min-width: 320px) and (max-width: 900px) {
     .profile-info__status{
       font-size: 14px;
+      line-height: 17px;
+      max-width: 282px;
     }
   }

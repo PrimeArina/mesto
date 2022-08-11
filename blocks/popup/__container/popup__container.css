@@ -1,8 +1,6 @@
 .popup__container{
   width: 430px;
-  height: 330px;
   background-color: #fff;
-  border: #fff;
   border-radius: 10px;
   z-index: 1100;
   display: grid;

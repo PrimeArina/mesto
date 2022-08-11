@@ -1,4 +1,5 @@
 .popup__button-save{
+  cursor: url(../../../images/Cursor.svg), pointer;
   margin: 48px auto 37px auto;
   color: #fff;
   background-color: #000;

@@ -1,8 +1,13 @@
 .element__heart-button{
-  background: none;
+  background-image: url("../../../images/Vector.svg");
+  background-color: white;
+  background-size: 22px, 19px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: url(../../../images/Cursor.svg), pointer;
   border-style: none;
   padding: 0;
   width: 22px;
   height: 19px;
-  align-self: start;
+  align-self: center;
 }  
