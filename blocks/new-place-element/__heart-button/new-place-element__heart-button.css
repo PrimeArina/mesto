@@ -1,0 +1,7 @@
+.new-place-element__heart-button{
+  background: url("../../../images/Vector.svg");
+  background-size: 22px, 19px;
+  width: 22px;
+  height: 19px;
+  align-self: center;
+}  

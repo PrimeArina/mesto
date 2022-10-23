@@ -1,12 +1,13 @@
-.popup_opened{
+.photo_opened{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
 
-.popup_opened:hover {
+.photo_opened:hover {
   visibility: visible;
   opacity: 1;
 }

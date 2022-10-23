@@ -23,7 +23,7 @@
         </div>
         <button class="profile__add-button opacity"></button>
       </section>
-      <ul class="elements"></ul>
+      <section class="elements"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy;2022. Mesto Russia</p>
@@ -49,32 +49,22 @@
           <h3 class="new-place__title">Новое место</h3>
           <input class="new-place__naming new-place__entry-field" value="" placeholder="Название">
           <input class="new-place__adress new-place__entry-field" value="" placeholder="Ссылка на картинку">
-          <button type ="submit" class="new-place__button-make opacity">Сохранить</button>
+          <button class="new-place__button-make opacity">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="photo">
-      <div class="photo__background"></div>
-      <div class="photo__block"><button class="photo__button-close opacity"></button>
-        <form class="photo__container">
-          <img class="photo__image" src="" alt="Фото.">
-          <p class="photo__text"></p>
-        </form>
-      </div>
-    </div>
-
-    <template id="new-place-template">
-      <li class="new-place-element">
+    <template class="new-place-template">
+      <article class="new-place-element">
         <img class="new-place-element__image" alt="Фото.">
-        <button class="new-place-element__delete-button button opacity" type="button"></button>
-        <div class="new-place-element__description">
-          <p class="new-place-element__text"></p>
-          <button class="new-place-element__heart-button button opacity" type="button"></button>
+          <div class="new-place-element__description">
+            <h3 class="new-place-element__text"></h3>
+          <button class="new-place-element__delete-button" type="button">Удалить</button>
+          <button class="new-place-element__heart-button" type="button"></button>
         </div>
-      </li>
+      </article>
     </template>
-    
+
    </div>
   <script src="./scripts/script.js"></script>
 </body>
@@ -82,3 +72,47 @@
 </html>
 
 
+<!--<div class="element">
+  <img src="./images/Karachaevsk.jpg" class="element__img" alt="Фото древнего храма среди зеленых
+    гор в Карачаевске.">
+  <div class="element__text-group">
+    <h3 class="element__text">Карачаевск</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>
+<div class="element">
+  <img src="./images/Elbrus.png" class="element__img" alt="Фото далекого Эльбруса на фоне заката.">
+  <div class="element__text-group">
+    <h3 class="element__text">Гора Эльбрус</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>
+<div class="element">
+  <img src="./images/Dombai.png" class="element__img" alt="Фото склонов Домбая.">
+  <div class="element__text-group">
+    <h3 class="element__text">Домбай</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>
+<div class="element">
+  <img src="./images/Elbrus.png" class="element__img" alt="Фото далекого Эльбруса на фоне заката.">
+  <div class="element__text-group">
+    <h3 class="element__text">Гора Эльбрус</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>
+<div class="element">
+  <img src="./images/Dombai.png" class="element__img" alt="Фото склонов Домбая.">
+  <div class="element__text-group">
+    <h3 class="element__text">Домбай</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>
+<div class="element">
+  <img src="./images/Karachaevsk.jpg" class="element__img" alt="Фото древнего храма среди зеленых
+    гор в Карачаевске.">
+  <div class="element__text-group">
+    <h3 class="element__text">Карачаево-Черкессия</h3>
+    <button class="element__heart-button opacity"></button>
+  </div>
+</div>

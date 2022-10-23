@@ -1,4 +1,4 @@
-.element__text-group{
+.new-place-element__description{
   display: grid;
   grid-template-columns: 1fr 25px;
   grid-column-gap: 30px;

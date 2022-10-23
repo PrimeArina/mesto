@@ -1,0 +1,10 @@
+.new-place-element__delete-button{
+    background-image: url("../../../images/Group.svg");
+    background-size: 18px, 19px;
+    width: 18px;
+    height: 19px;
+    z-index: 2;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

@@ -1,4 +1,4 @@
-.popup{
+.new-place{
   display: none;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   width: 100%;
@@ -11,5 +11,6 @@
   z-index: 1000;
   margin: 0;
   padding: 0;
+  
 }
 
