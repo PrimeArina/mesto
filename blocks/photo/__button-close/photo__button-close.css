@@ -5,11 +5,10 @@
     height: 32px;
     width: 32px;
     background-image: url("../../../images/Close-Icon.svg");
-    background-color: black;
     align-self: end;
     z-index: 2000;
     margin-bottom: 8px;
-    outline: none; 
+    outline: none;
     background-color: transparent;
   }
   
