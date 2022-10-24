@@ -1,4 +1,4 @@
-.photo__container{
+.photo{
     z-index: 1100;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
   }
   
   @media screen and (min-width: 280px) and (max-width: 500px) {
-    .photo__container{
+    .photo{
     width: 282px;
     grid-template-columns: 238px;
     justify-self: end;
