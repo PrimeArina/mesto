@@ -1,117 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-const editButton = document.querySelector('.profile-info__edit-button');
-const popup = document.querySelector('.popup');
-const closeButton = popup.querySelector('.popup__button-close');
-const saveButton = document.querySelector('.popup__button-save');
+  const popupTypeProfile = document.querySelector('.popup_type_profile');
+  const buttonEditProfile = document.querySelector('.profile-info__edit-button');
+  const buttonCloseProfile = popupTypeProfile.querySelector('.popup__button-close_type_profile');
+  const buttonSaveProfile = popupTypeProfile.querySelector('.popup__button-save_type_profile');
+  const formElementProfile = document.querySelector('.popup__type_container_profile');
+  const popupRedactName = document.querySelector('.popup__redaction-name_profile');
+  const popupRedactStatus = document.querySelector('.popup__redaction-status_profile');
+  const profileInfoName = document.querySelector('.profile-info__name');
+  const profileInfoStatus = document.querySelector('.profile-info__status');
+  const containerNewPlace = document.querySelector('.elements')
+  const newPlaceTemplate = document.querySelector('#new-place-template').content;
+  const newPlace = document.querySelector('.popup_type_new-place');
+  const newPlaceContainer = document.querySelector('.popup__type_container_new-place');
+  const buttonAddNewPlace = document.querySelector('.profile__add-button');
+  const buttonCloseNewPlace = newPlace.querySelector('.popup__button-close_type_new-place');
+  const buttonMakeNewPlace = document.querySelector('.popup__button-save_type_new-place');
+  const namingNewPlace = document.querySelector('.popup__redaction-name_new-place');
+  const adressNewPlace = document.querySelector('.popup__redaction-status_new-place');
+  const popupWithPhoto = document.querySelector('.popup_type_photo');
+  const photoImg = document.querySelector('.photo__image');
+  const photoText = document.querySelector('.photo__text');
+  const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
 
-  editButton.addEventListener('click', function(e) {
-    popup.classList.toggle('popup_opened');
-  });
-  closeButton.addEventListener('click', function(e) {
-    popup.classList.toggle('popup_opened');
-  });
-  saveButton.addEventListener('click', function(e) {
-    popup.classList.toggle('popup_opened');
-  });
-
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
+  function openPopupTypeProfile(evt) {
+    popupTypeProfile.classList.add('popup_opened');
   };
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+  function closePopupTypeProfile(evt) {
+    popupTypeProfile.classList.remove('popup_opened');
+  };
+  function openPopupNewPlace(evt) {
+    newPlace.classList.add('popup_opened');
+  };
+  function closePopupNewPlace(evt) {
+    newPlace.classList.remove('popup_opened');
   };
 
-const formElement = document.querySelector('.popup__container');
-const popupRedactName = document.querySelector('.popup__redaction-name');
-const popupRedactStatus = document.querySelector('.popup__redaction-status');
-const profileInfoName = document.querySelector('.profile-info__name');
-const profileInfoStatus = document.querySelector('.profile-info__status');
-
-function formSubmitHandler (evt) {
+  function formProfileSubmitHandler (evt) {
     evt.preventDefault();
     profileInfoName.textContent = popupRedactName.value;
     profileInfoStatus.textContent = popupRedactStatus.value;
   };
-    
-  formElement.addEventListener('submit', formSubmitHandler); 
-
-  const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
-
-  const containerNewPlace = document.querySelector('.elements')
-  const newPlaceTemplate = document.querySelector('#new-place-template').content;
 
   const render = () => {
     initialCards.forEach((item) => {
-      const elementNewPlace = cardNewPlace (item.name, item.link);
+      const elementNewPlace = createCardNewPlace (item.name, item.link);
 
       containerNewPlace.append(elementNewPlace);
     });
-    newPlaceContainer.addEventListener('submit', newItem);
-   };
+    newPlaceContainer.addEventListener('submit', createNewItem);
+  };
 
-    const cardNewPlace = (name, link) => {
+  const createCardNewPlace = (name, link) => {
     const elementNewPlace = newPlaceTemplate.querySelector('.new-place-element').cloneNode(true);
-    elementNewPlace.querySelector('.new-place-element__image').src = link;
-    elementNewPlace.querySelector('.new-place-element__image').alt = name;
+    const photoBlock = elementNewPlace.querySelector('.new-place-element__image');
+    photoBlock.src = link;
+    photoBlock.alt = name;
     elementNewPlace.querySelector('.new-place-element__text').textContent = name;
     const heartLike = elementNewPlace.querySelector('.new-place-element__heart-button');
     heartLike.addEventListener('click', likeListen); 
-    const deleteButton = elementNewPlace.querySelector('.new-place-element__delete-button');
-    deleteButton.addEventListener('click', delButton);
-    const photoBlock = elementNewPlace.querySelector('.new-place-element__image');
+    const buttonDel = elementNewPlace.querySelector('.new-place-element__delete-button');
+    buttonDel.addEventListener('click', delButton);
     photoBlock.addEventListener('click', photoListen);
     
     return elementNewPlace;
   };
 
-  const newPlace = document.querySelector('.new-place');
-  const newPlaceContainer = document.querySelector('.new-place__container');
-  const addButton = document.querySelector('.profile__add-button');
-  const closeButtonNp = newPlace.querySelector('.new-place__button-close');
-  const makeButton = document.querySelector('.new-place__button-make');
- 
-  function newPlaceClass () {
-    newPlace.classList.toggle('new-place_opened');
-  };
-  
-  addButton.addEventListener('click', newPlaceClass);
-  closeButtonNp.addEventListener('click', newPlaceClass);
-  makeButton.addEventListener('click', newPlaceClass);
-    
-  const namingNewPlace = document.querySelector('.new-place__naming');
-  const adressNewPlace = document.querySelector('.new-place__adress');
-
-  const newItem = (evt) => {
+  const createNewItem = (evt) => {
     evt.preventDefault();
-    const itemNew = cardNewPlace(namingNewPlace.value, adressNewPlace.value);
+    const itemNew = createCardNewPlace(namingNewPlace.value, adressNewPlace.value);
     containerNewPlace.prepend(itemNew);
-    namingNewPlace.value = '';
-    adressNewPlace.value = '';
+    newPlaceContainer.reset();
   };
 
   const likeListen = (evt) => {
@@ -120,28 +78,33 @@ function formSubmitHandler (evt) {
   };
 
   const delButton = (evt) => {
-    const delElement = evt.target.closest('.new-place-element');
-    delElement.remove();
+    const elementDelete = evt.target.closest('.new-place-element');
+    elementDelete.remove();
   };
-   
-  const photoClass = document.querySelector('.photo');
-  const photoImg = document.querySelector('.photo__image');
-  const photoText = document.querySelector('.photo__text');
-  const photoButtonClose = document.querySelector('.photo__button-close');
-
+  
   const photoListen = (evt) => {
     evt.preventDefault();
-    photoClass.classList.toggle('photo_opened');
-    const evTarg = evt.target.closest('.new-place-element');
-    const imgPhoto = evTarg.querySelector('.new-place-element__image');
-    const textPhoto = evTarg.querySelector('.new-place-element__text');
+    popupWithPhoto.classList.toggle('photo_opened');
+    const newPlaceFindElement = evt.target.closest('.new-place-element');
+    const imgPhoto = newPlaceFindElement.querySelector('.new-place-element__image');
+    const textPhoto = newPlaceFindElement.querySelector('.new-place-element__text');
     photoImg.src = imgPhoto.src;
     photoImg.alt = imgPhoto.alt;
     photoText.textContent = textPhoto.textContent;
   };
- 
+
+  buttonEditProfile.addEventListener('click', openPopupTypeProfile);
+  buttonCloseProfile.addEventListener('click', closePopupTypeProfile);
+  buttonSaveProfile.addEventListener('click', closePopupTypeProfile);
+  buttonAddNewPlace.addEventListener('click', openPopupNewPlace);
+  buttonCloseNewPlace.addEventListener('click', closePopupNewPlace);
+  buttonMakeNewPlace.addEventListener('click', closePopupNewPlace);
+
+  formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
   photoButtonClose.addEventListener('click', photoListen);
   
   render();
 
 });
+
+  

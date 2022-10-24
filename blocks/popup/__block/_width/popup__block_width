@@ -1,0 +1,3 @@
+.popup__block_width{
+    width: 510px;
+}

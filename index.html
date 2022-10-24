@@ -29,34 +29,41 @@
       <p class="footer__copyright">&copy;2022. Mesto Russia</p>
     </footer>
 
-    <div class="popup">
-      <div class="popup__background"></div>
-      <div class="popup__block"><button class="popup__button-close opacity"></button>
-        <form class="popup__container">
+    <div class="popup popup_type_profile ">
+      <div class="popup__background opacity_background"></div>
+      <div class="popup__block popup__block_width">
+        <button class="popup__button-close popup__button-close_type_profile opacity"></button>
+        <form class="popup__container popup__type_container_profile">
           <h3 class="popup__name">Редактировать профиль</h3>
-          <input class="popup__redaction-name popup__entry-field" value="Жак Ив-Кусто" placeholder="Введите имя">
-          <input class="popup__redaction-status popup__entry-field" value="Исследователь океана"
-            placeholder="Введите статус">
-          <button class="popup__button-save opacity">Сохранить</button>
+          <input class="popup__redaction-name popup__redaction-name_profile popup__entry-field" 
+          value="Жак Ив-Кусто" placeholder="Введите имя">
+          <input class="popup__redaction-status popup__redaction-status_profile popup__entry-field" 
+          value="Исследователь океана" placeholder="Введите статус">
+          <button class="popup__button-save popup__button-save_type_profile opacity">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="new-place">
-      <div class="new-place__background"></div>
-      <div class="new-place__block"><button class="new-place__button-close opacity"></button>
-        <form class="new-place__container">
+    <div class="popup_type_new-place popup">
+      <div class="popup__background opacity_background"></div>
+      <div class="popup__block popup__block_width">
+        <button class="popup__button-close popup__button-close_type_new-place opacity"></button>
+        <form class="popup__container popup__type_container_new-place">
           <h3 class="new-place__title">Новое место</h3>
-          <input class="new-place__naming new-place__entry-field" value="" placeholder="Название">
-          <input class="new-place__adress new-place__entry-field" value="" placeholder="Ссылка на картинку">
-          <button type ="submit" class="new-place__button-make opacity">Сохранить</button>
+          <input class="popup__redaction-name popup__redaction-name_new-place popup__entry-field" 
+          value="" placeholder="Название" required>
+          <input class="popup__redaction-status popup__redaction-status_new-place popup__entry-field" 
+          value="" placeholder="Ссылка на картинку" required type="url">
+          <button type ="submit" class="popup__button-save popup__button-save_type_new-place opacity">
+            Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="photo">
-      <div class="photo__background"></div>
-      <div class="photo__block"><button class="photo__button-close opacity"></button>
+    <div class="popup_type_photo popup">
+      <div class="popup__background opacity_background_photo"></div>
+      <div class="popup__block">
+        <button class="popup__button-close popup__button-close_type_photo opacity"></button>
         <form class="photo__container">
           <img class="photo__image" alt="Фото.">
           <p class="photo__text"></p>
@@ -76,6 +83,7 @@
     </template>
     
    </div>
+   <script src="./scripts/cards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 
