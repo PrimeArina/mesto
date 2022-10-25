@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const popupTypeProfile = document.querySelector('.popup_type_profile');
   const buttonEditProfile = document.querySelector('.profile-info__edit-button');
-  const buttonCloseProfile = popupTypeProfile.querySelector('.popup__button-close_type_profile');
-  const buttonSaveProfile = popupTypeProfile.querySelector('.popup__button-save_type_profile');
+  const buttonCloseProfile = document.querySelector('.popup__button-close_type_profile');
+  const buttonSaveProfile = document.querySelector('.popup__button-save_type_profile');
   const formElementProfile = document.querySelector('.popup__container_type_profile');
   const popupRedactName = document.querySelector('.popup__redaction-name_profile');
   const popupRedactStatus = document.querySelector('.popup__redaction-status_profile');
@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileInfoStatus = document.querySelector('.profile-info__status');
   const containerNewPlace = document.querySelector('.elements')
   const newPlaceTemplate = document.querySelector('#new-place-template').content;
-  const newPlace = document.querySelector('.popup_type_new-place');
+  const popupTypeNewPlace = document.querySelector('.popup_type_new-place');
   const newPlaceContainer = document.querySelector('.popup__container_type_new-place');
   const buttonAddNewPlace = document.querySelector('.profile__add-button');
-  const buttonCloseNewPlace = newPlace.querySelector('.popup__button-close_type_new-place');
+  const buttonCloseNewPlace = document.querySelector('.popup__button-close_type_new-place');
   const buttonMakeNewPlace = document.querySelector('.popup__button-save_type_new-place');
   const namingNewPlace = document.querySelector('.popup__redaction-name_new-place');
   const adressNewPlace = document.querySelector('.popup__redaction-status_new-place');
@@ -22,17 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const photoText = document.querySelector('.photo__text');
   const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
 
-  function openPopupTypeProfile(evt) {
-    popupTypeProfile.classList.add('popup_opened');
+  const openPopup = (popup) => {
+    popup.classList.add('popup_opened')
   };
-  function closePopupTypeProfile(evt) {
-    popupTypeProfile.classList.remove('popup_opened');
-  };
-  function openPopupNewPlace(evt) {
-    newPlace.classList.add('popup_opened');
-  };
-  function closePopupNewPlace(evt) {
-    newPlace.classList.remove('popup_opened');
+  const closePopup = (popup) => {
+    popup.classList.remove('popup_opened')
   };
 
   function formProfileSubmitHandler (evt) {
@@ -47,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       containerNewPlace.append(elementNewPlace);
     });
-    newPlaceContainer.addEventListener('submit', createNewItem);
+    newPlaceContainer.addEventListener('submit', handleCreateNewItem);
   };
 
   const createCardNewPlace = (name, link) => {
@@ -57,54 +51,70 @@ document.addEventListener('DOMContentLoaded', () => {
     photoBlock.alt = name;
     elementNewPlace.querySelector('.new-place-element__text').textContent = name;
     const heartLike = elementNewPlace.querySelector('.new-place-element__heart-button');
-    heartLike.addEventListener('click', likeListen); 
+    heartLike.addEventListener('click', handleLikeListen); 
     const buttonDel = elementNewPlace.querySelector('.new-place-element__delete-button');
-    buttonDel.addEventListener('click', delButton);
+    buttonDel.addEventListener('click', handleDelButton);
     photoBlock.addEventListener('click', photoListen);
     
     return elementNewPlace;
   };
 
-  const createNewItem = (evt) => {
+  const handleCreateNewItem = (evt) => {
     evt.preventDefault();
     const itemNew = createCardNewPlace(namingNewPlace.value, adressNewPlace.value);
     containerNewPlace.prepend(itemNew);
     newPlaceContainer.reset();
   };
 
-  const likeListen = (evt) => {
+  const handleLikeListen = (evt) => {
     const likeElement = evt.target.closest('.new-place-element__heart-button');
     likeElement.classList.toggle('new-place-element__heart-button_active');
   };
 
-  const delButton = (evt) => {
+  const handleDelButton = (evt) => {
     const elementDelete = evt.target.closest('.new-place-element');
     elementDelete.remove();
   };
   
   const photoListen = (evt) => {
     evt.preventDefault();
-    popupWithPhoto.classList.toggle('photo_opened');
     const newPlaceFindElement = evt.target.closest('.new-place-element');
     const imgPhoto = newPlaceFindElement.querySelector('.new-place-element__image');
+    imgPhoto.addEventListener('click', () => {
+      openPopup(popupWithPhoto);
+    });
     const textPhoto = newPlaceFindElement.querySelector('.new-place-element__text');
     photoImg.src = imgPhoto.src;
     photoImg.alt = imgPhoto.alt;
     photoText.textContent = textPhoto.textContent;
   };
 
-  buttonEditProfile.addEventListener('click', openPopupTypeProfile);
-  buttonCloseProfile.addEventListener('click', closePopupTypeProfile);
-  buttonSaveProfile.addEventListener('click', closePopupTypeProfile);
-  buttonAddNewPlace.addEventListener('click', openPopupNewPlace);
-  buttonCloseNewPlace.addEventListener('click', closePopupNewPlace);
-  buttonMakeNewPlace.addEventListener('click', closePopupNewPlace);
+  buttonEditProfile.addEventListener('click', () => {
+    openPopup(popupTypeProfile);
+  });
+  buttonCloseProfile.addEventListener('click', () => {
+    closePopup(popupTypeProfile);
+  });
+  buttonSaveProfile.addEventListener('click', () => {
+    closePopup(popupTypeProfile);
+  });
+  buttonAddNewPlace.addEventListener('click', () => {
+    openPopup(popupTypeNewPlace);
+  });
+  buttonCloseNewPlace.addEventListener('click', () => {
+    closePopup(popupTypeNewPlace);
+  });
+  buttonMakeNewPlace.addEventListener('click', () => {
+    closePopup(popupTypeNewPlace);
+  });
 
   formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
-  photoButtonClose.addEventListener('click', photoListen);
+  photoButtonClose.addEventListener('click', () => {
+    closePopup(popupWithPhoto);
+  });
   
   render();
-
+  
 });
 
   
