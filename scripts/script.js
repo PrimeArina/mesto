@@ -36,6 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   };
 
+  const handlerEscKey = (evt) => {
+    if(evt.key === 'Escape'){
+      closePopup(popupTypeProfile);
+      closePopup(popupTypeNewPlace);
+      closePopup(popupWithPhoto);
+    };
+  };
+
   const render = () => {
     initialCards.forEach((item) => {
       const elementNewPlace = createCardNewPlace (item.name, item.link);
@@ -124,21 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   });
   
-  popupTypeProfile.addEventListener('keydown', (evt) => {
-    if(evt.key === 'escape'){
-      closePopup(popupTypeProfile);
-    };
-  });
-  popupTypeNewPlace.addEventListener('keydown', (evt) => {
-    if(evt.key === 'escape'){
-      closePopup(popupTypeNewPlace);
-    };
-  });
-  popupWithPhoto.addEventListener('keydown', (evt) => {
-    if(evt.key === 'escape'){
-      closePopup(popupWithPhoto);
-    };
-  });
+  document.addEventListener('keydown', handlerEscKey);
 
   formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
   photoButtonClose.addEventListener('click', () => {
