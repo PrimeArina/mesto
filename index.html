@@ -35,16 +35,15 @@
         <button class="popup__button-close popup__button-close_type_profile opacity"></button>
         <form name="form-profile" class="popup__container popup__container_type_profile">
           <h3 class="popup__name">Редактировать профиль</h3>
-          <input name="form-profile-name" class="popup__redaction-name popup__redaction-name_profile 
+          <input class="popup__redaction-name popup__redaction-name_profile 
           popup__entry-field" id="form-profile-name" type="text" value="Жак Ив-Кусто" placeholder="Введите имя" 
           minlength="2" maxlength="40" required>
           <span class="popup__error" id="form-profile-name-error"></span>
-          <input name="form-profile-status" class="popup__redaction-status_profile popup__redaction-status 
+          <input class="popup__redaction-status_profile popup__redaction-status 
           popup__entry-field popup__entry-field_error" id="form-profile-status" type="text" value="Исследователь океана" placeholder="Введите статус" 
           minlength="2" maxlength="200" required>
           <span class="popup__error" id="form-profile-status-error"></span>
-          <button class="popup__button-save popup__button-save_type_profile opacity" 
-          disabled>
+          <button class="popup__button-save popup__button-save_type_profile opacity">
           Сохранить</button>
         </form>
       </div>
@@ -56,16 +55,15 @@
         <button class="popup__button-close popup__button-close_type_new-place opacity"></button>
         <form name="formNewPlace" class="popup__container popup__container_type_new-place">
           <h3 class="popup__name">Новое место</h3>
-          <input name="formNewPlaceName" class="popup__redaction-name popup__redaction-name_new-place 
+          <input class="popup__redaction-name popup__redaction-name_new-place 
           popup__entry-field" value="" id="form-new-place-name" minlength="2" maxlength="30" 
           placeholder="Название" type="text" required>
           <span class="popup__error" id="form-new-place-name-error"></span>
-          <input name="form-new-place-url" class="popup__redaction-status popup__redaction-status_new-place 
+          <input class="popup__redaction-status popup__redaction-status_new-place 
           popup__entry-field" value="" id="form-new-place-url" placeholder="Ссылка на картинку" 
           required type="url">
           <span class="popup__error" id="form-new-place-url-error"></span>
-          <button class="popup__button-save popup__button-save_type_new-place 
-          opacity" disabled>
+          <button class="popup__button-save popup__button-save_type_new-place opacity">
             Сохранить</button>
         </form>
       </div>
@@ -94,9 +92,10 @@
     </template>
     
    </div>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/script.js"></script>
-  <script src="./scripts/validate.js"></script>
+  
 </body>
 
 </html>

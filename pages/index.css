@@ -6,8 +6,6 @@
 
 @import url(../blocks/button/button.css);
 
-@import url(../blocks/form-set/form-set.css);
-
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__block/popup__block.css);
 @import url(../blocks/popup/__block/_width/popup__block_width);

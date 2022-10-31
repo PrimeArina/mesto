@@ -123,10 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
       closePopup(popupWithPhoto);
     };
   });
+  
   popupTypeProfile.addEventListener('keydown', (evt) => {
     if(evt.key === 'escape'){
       closePopup(popupTypeProfile);
-      console.log(close);
     };
   });
   popupTypeNewPlace.addEventListener('keydown', (evt) => {
@@ -146,20 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   
+  
   render();
 
-  
 
-  
-
-  // enableValidation({
-  //   formSelector: 'popup__container',
-  //   inputSelector: 'popup__entry-field',
-  //   submitButtonSelector: 'popup__button-save',
-  //   inactiveButtonClass: 'popup__button-save_invalid',
-  //   inputErrorClass: 'popup__input_error',
-  //   errorClass: 'popup__error'
-  // }); 
 
 
 
