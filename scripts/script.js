@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const photoImg = document.querySelector('.photo__image');
   const photoText = document.querySelector('.photo__text');
   const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
-  const popupClose = document.querySelector ('.popup__close');
   
   const openPopup = (popup) => {
     popup.classList.add('popup_opened');
