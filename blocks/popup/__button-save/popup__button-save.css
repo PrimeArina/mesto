@@ -1,9 +1,6 @@
 .popup__button-save{
   cursor: url(../../../images/Cursor.svg), pointer;
-  margin: 48px auto 37px auto;
-  color: #fff;
-  background-color: #000;
-  border: #000;
+  margin: 18px auto 37px auto;
   border-radius: 2px;
   font-size: 18px;
   line-height: 100%;
@@ -21,3 +18,4 @@
     height: 46px;
   }
 }
+

@@ -29,38 +29,49 @@
       <p class="footer__copyright">&copy;2022. Mesto Russia</p>
     </footer>
 
-    <div class="popup_type_profile popup">
+    <div class="popup_type_profile popup popup__close">
       <div class="popup__background popup__background_opacity_all"></div>
       <div class="popup__block popup__block_width">
         <button class="popup__button-close popup__button-close_type_profile opacity"></button>
-        <form class="popup__container popup__container_type_profile">
+        <form id="form" name="form-profile" class="popup__container popup__container_type_profile">
           <h3 class="popup__name">Редактировать профиль</h3>
-          <input class="popup__redaction-name popup__redaction-name_profile popup__entry-field" 
-          value="Жак Ив-Кусто" placeholder="Введите имя">
-          <input class="popup__redaction-status popup__redaction-status_profile popup__entry-field" 
-          value="Исследователь океана" placeholder="Введите статус">
-          <button class="popup__button-save popup__button-save_type_profile opacity">Сохранить</button>
+          <input name="form-profile-name" class="popup__redaction-name_profile 
+          popup__entry-field" id="form-profile-name" type="text" value="Жак Ив-Кусто" placeholder="Введите имя" 
+          minlength="2" maxlength="40" required>
+          <span class="popup__error" id="form-profile-name-error"></span>
+          <input name="form-profile-status" class="popup__redaction-status_profile popup__redaction-status 
+          popup__entry-field popup__entry-field_error" id="form-profile-status" type="text" value="Исследователь океана" placeholder="Введите статус" 
+          minlength="2" maxlength="200" required>
+          <span class="popup__error" id="form-profile-status-error"></span>
+          <button id="button-save" class="popup__button-save popup__button-save_type_profile opacity" 
+          disabled>
+          Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup_type_new-place popup">
+    <div class="popup_type_new-place popup popup__close">
       <div class="popup__background popup__background_opacity_all"></div>
       <div class="popup__block popup__block_width">
         <button class="popup__button-close popup__button-close_type_new-place opacity"></button>
-        <form class="popup__container popup__container_type_new-place">
+        <form id="form" name="formNewPlace" class="popup__container popup__container_type_new-place">
           <h3 class="popup__name">Новое место</h3>
-          <input class="popup__redaction-name popup__redaction-name_new-place popup__entry-field" 
-          value="" placeholder="Название" required>
-          <input class="popup__redaction-status popup__redaction-status_new-place popup__entry-field" 
-          value="" placeholder="Ссылка на картинку" required type="url">
-          <button type ="submit" class="popup__button-save popup__button-save_type_new-place opacity">
+          <input name="formNewPlaceName" class="popup__redaction-name_new-place 
+          popup__entry-field" value="" id="form-new-place-name" minlength="2" maxlength="30" 
+          placeholder="Название" type="text" required>
+          <span class="popup__error" id="form-new-place-name-error"></span>
+          <input name="form-new-place-url" class="popup__redaction-status popup__redaction-status_new-place 
+          popup__entry-field" value="" id="form-new-place-url" placeholder="Ссылка на картинку" 
+          required type="url">
+          <span class="popup__error" id="form-new-place-url-error"></span>
+          <button id="button-save" class="popup__button-save popup__button-save_type_new-place 
+          opacity" disabled>
             Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup_type_photo popup">
+    <div class="popup_type_photo popup popup__close">
       <div class="popup__background popup__background_opacity_photo"></div>
       <div class="popup__block">
         <button class="popup__button-close popup__button-close_type_photo opacity"></button>
@@ -83,8 +94,9 @@
     </template>
     
    </div>
-   <script src="./scripts/cards.js"></script>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

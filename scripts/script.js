@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttonCloseProfile = document.querySelector('.popup__button-close_type_profile');
   const buttonSaveProfile = document.querySelector('.popup__button-save_type_profile');
   const formElementProfile = document.querySelector('.popup__container_type_profile');
-  const popupRedactName = document.querySelector('.popup__redaction-name_profile');
-  const popupRedactStatus = document.querySelector('.popup__redaction-status_profile');
+  const popupRedactName = formElementProfile.querySelector('.popup__redaction-name_profile');
+  const popupRedactStatus = formElementProfile.querySelector('.popup__redaction-status_profile');
   const profileInfoName = document.querySelector('.profile-info__name');
   const profileInfoStatus = document.querySelector('.profile-info__status');
   const containerNewPlace = document.querySelector('.elements')
@@ -21,18 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const photoImg = document.querySelector('.photo__image');
   const photoText = document.querySelector('.photo__text');
   const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
-
+  const popupClose = document.querySelector ('.popup__close');
+  
   const openPopup = (popup) => {
-    popup.classList.add('popup_opened')
+    popup.classList.add('popup_opened');
   };
   const closePopup = (popup) => {
-    popup.classList.remove('popup_opened')
+    popup.classList.remove('popup_opened');
   };
-
+ 
   function formProfileSubmitHandler (evt) {
     evt.preventDefault();
     profileInfoName.textContent = popupRedactName.value;
     profileInfoStatus.textContent = popupRedactStatus.value;
+
   };
 
   const render = () => {
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemNew = createCardNewPlace(namingNewPlace.value, adressNewPlace.value);
     containerNewPlace.prepend(itemNew);
     newPlaceContainer.reset();
-  };
+  }
 
   const handleLikeListen = (evt) => {
     const likeElement = evt.target.closest('.new-place-element__heart-button');
@@ -107,14 +109,61 @@ document.addEventListener('DOMContentLoaded', () => {
   buttonMakeNewPlace.addEventListener('click', () => {
     closePopup(popupTypeNewPlace);
   });
+  popupTypeProfile.addEventListener('click', (evt) => {
+    if(evt.target == evt.currentTarget){
+      closePopup(popupTypeProfile);
+    };
+  });
+  popupTypeNewPlace.addEventListener('click', (evt) => {
+    if(evt.target == evt.currentTarget){
+      closePopup(popupTypeNewPlace);
+    };
+  });
+  popupWithPhoto.addEventListener('click', (evt) => {
+    if(evt.target == evt.currentTarget){
+      closePopup(popupWithPhoto);
+    };
+  });
+  popupTypeProfile.addEventListener('keydown', (evt) => {
+    if(evt.key === 'escape'){
+      closePopup(popupTypeProfile);
+      console.log(close);
+    };
+  });
+  popupTypeNewPlace.addEventListener('keydown', (evt) => {
+    if(evt.key === 'escape'){
+      closePopup(popupTypeNewPlace);
+    };
+  });
+  popupWithPhoto.addEventListener('keydown', (evt) => {
+    if(evt.key === 'escape'){
+      closePopup(popupWithPhoto);
+    };
+  });
 
   formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
   photoButtonClose.addEventListener('click', () => {
     closePopup(popupWithPhoto);
   });
   
-  render();
   
+  render();
+
+  
+
+  
+
+  // enableValidation({
+  //   formSelector: 'popup__container',
+  //   inputSelector: 'popup__entry-field',
+  //   submitButtonSelector: 'popup__button-save',
+  //   inactiveButtonClass: 'popup__button-save_invalid',
+  //   inputErrorClass: 'popup__input_error',
+  //   errorClass: 'popup__error'
+  // }); 
+
+
+
 });
 
   
