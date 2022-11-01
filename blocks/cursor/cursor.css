@@ -1,0 +1,7 @@
+.cursor{
+  
+}
+
+.cursor:not([disabled]):hover{
+    cursor: pointer;
+  }

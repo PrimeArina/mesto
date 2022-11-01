@@ -19,9 +19,9 @@
         <div class="profile-info">
           <h1 class="profile-info__name">Жак-Ив Кусто</h1>
           <h2 class="profile-info__status">Исследователь океана</h2>
-          <button class="profile-info__edit-button opacity"></button>
+          <button class="profile-info__edit-button opacity cursor"></button>
         </div>
-        <button class="profile__add-button opacity"></button>
+        <button class="profile__add-button opacity cursor"></button>
       </section>
       <ul class="elements"></ul>
     </main>
@@ -32,8 +32,8 @@
     <div class="popup_type_profile popup">
       <div class="popup__background popup__background_opacity_all"></div>
       <div class="popup__block popup__block_width">
-        <button class="popup__button-close popup__button-close_type_profile opacity"></button>
-        <form name="form-profile" class="popup__container popup__container_type_profile">
+        <button class="popup__button-close popup__button-close_type_profile opacity cursor"></button>
+        <form name="form-profile" class="popup__container popup__container_type_profile" novalidate>
           <h3 class="popup__name">Редактировать профиль</h3>
           <input class="popup__redaction-name popup__redaction-name_profile 
           popup__entry-field" id="form-profile-name" type="text" value="Жак Ив-Кусто" placeholder="Введите имя" 
@@ -43,7 +43,7 @@
           popup__entry-field popup__entry-field_error" id="form-profile-status" type="text" value="Исследователь океана" placeholder="Введите статус" 
           minlength="2" maxlength="200" required>
           <span class="popup__error" id="form-profile-status-error"></span>
-          <button class="popup__button-save popup__button-save_type_profile opacity">
+          <button type="submit" class="popup__button-save popup__button-save_type_profile opacity cursor">
           Сохранить</button>
         </form>
       </div>
@@ -52,8 +52,8 @@
     <div class="popup_type_new-place popup">
       <div class="popup__background popup__background_opacity_all"></div>
       <div class="popup__block popup__block_width">
-        <button class="popup__button-close popup__button-close_type_new-place opacity"></button>
-        <form name="formNewPlace" class="popup__container popup__container_type_new-place">
+        <button class="popup__button-close popup__button-close_type_new-place opacity cursor"></button>
+        <form name="formNewPlace" class="popup__container popup__container_type_new-place" novalidate>
           <h3 class="popup__name">Новое место</h3>
           <input class="popup__redaction-name popup__redaction-name_new-place 
           popup__entry-field" value="" id="form-new-place-name" minlength="2" maxlength="30" 
@@ -63,7 +63,7 @@
           popup__entry-field" value="" id="form-new-place-url" placeholder="Ссылка на картинку" 
           required type="url">
           <span class="popup__error" id="form-new-place-url-error"></span>
-          <button class="popup__button-save popup__button-save_type_new-place opacity">
+          <button type="submit" class="popup__button-save popup__button-save_type_new-place opacity cursor">
             Сохранить</button>
         </form>
       </div>
@@ -72,21 +72,21 @@
     <div class="popup_type_photo popup">
       <div class="popup__background popup__background_opacity_photo"></div>
       <div class="popup__block">
-        <button class="popup__button-close popup__button-close_type_photo opacity"></button>
-        <form class="photo">
+        <button class="popup__button-close popup__button-close_type_photo opacity cursor"></button>
+        <div class="photo">
           <img class="photo__image" alt="Фото.">
           <p class="photo__text"></p>
-        </form>
+        </div>
       </div>
     </div>
 
     <template id="new-place-template">
       <li class="new-place-element">
         <img class="new-place-element__image" alt="Фото.">
-        <button class="new-place-element__delete-button button opacity" type="button"></button>
+        <button class="new-place-element__delete-button button opacity cursor" type="button"></button>
         <div class="new-place-element__description">
           <p class="new-place-element__text"></p>
-          <button class="new-place-element__heart-button button opacity" type="button"></button>
+          <button class="new-place-element__heart-button button opacity cursor" type="button"></button>
         </div>
       </li>
     </template>

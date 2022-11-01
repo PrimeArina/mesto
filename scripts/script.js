@@ -11,22 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const containerNewPlace = document.querySelector('.elements')
   const newPlaceTemplate = document.querySelector('#new-place-template').content;
   const popupTypeNewPlace = document.querySelector('.popup_type_new-place');
-  const newPlaceContainer = document.querySelector('.popup__container_type_new-place');
+  const formElementNewPlace = document.querySelector('.popup__container_type_new-place');
   const buttonAddNewPlace = document.querySelector('.profile__add-button');
   const buttonCloseNewPlace = document.querySelector('.popup__button-close_type_new-place');
   const buttonMakeNewPlace = document.querySelector('.popup__button-save_type_new-place');
   const namingNewPlace = document.querySelector('.popup__redaction-name_new-place');
-  const adressNewPlace = document.querySelector('.popup__redaction-status_new-place');
+  const addressNewPlace = document.querySelector('.popup__redaction-status_new-place');
   const popupWithPhoto = document.querySelector('.popup_type_photo');
   const photoImg = document.querySelector('.photo__image');
   const photoText = document.querySelector('.photo__text');
   const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
   
   const openPopup = (popup) => {
+    document.addEventListener('keydown', handlerEscKey);
     popup.classList.add('popup_opened');
   };
   const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', handlerEscKey);
   };
  
   function formProfileSubmitHandler (evt) {
@@ -37,10 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const handlerEscKey = (evt) => {
-    if(evt.key === 'Escape'){
-      closePopup(popupTypeProfile);
-      closePopup(popupTypeNewPlace);
-      closePopup(popupWithPhoto);
+    if(evt.key === 'Escape' ){
+      const choosePopupEsc = document.querySelector('.popup_opened');
+      closePopup(choosePopupEsc);
     };
   };
 
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       containerNewPlace.append(elementNewPlace);
     });
-    newPlaceContainer.addEventListener('submit', handleCreateNewItem);
+    formElementNewPlace.addEventListener('submit', handleCreateNewItem);
   };
 
   const createCardNewPlace = (name, link) => {
@@ -70,14 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handleCreateNewItem = (evt) => {
     evt.preventDefault();
-    const itemNew = createCardNewPlace(namingNewPlace.value, adressNewPlace.value);
+    const itemNew = createCardNewPlace(namingNewPlace.value, addressNewPlace.value);
     containerNewPlace.prepend(itemNew);
-    newPlaceContainer.reset();
-  }
+    formElementNewPlace.reset();
+    disableSubmitButton(buttonMakeNewPlace);
+  };
 
   const handleLikeListen = (evt) => {
-    const likeElement = evt.target.closest('.new-place-element__heart-button');
-    likeElement.classList.toggle('new-place-element__heart-button_active');
+    evt.currentTarget.classList.toggle('new-place-element__heart-button_active');
   };
 
   const handleDelButton = (evt) => {
@@ -89,13 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
     evt.preventDefault();
     const newPlaceFindElement = evt.target.closest('.new-place-element');
     const imgPhoto = newPlaceFindElement.querySelector('.new-place-element__image');
-    imgPhoto.addEventListener('click', () => {
-      openPopup(popupWithPhoto);
-    });
+    openPopup(popupWithPhoto);
     const textPhoto = newPlaceFindElement.querySelector('.new-place-element__text');
     photoImg.src = imgPhoto.src;
     photoImg.alt = imgPhoto.alt;
     photoText.textContent = textPhoto.textContent;
+  };
+
+  const handleClosePopupByClick = (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(evt.currentTarget);
+    };
+  };
+
+  const handleClosePopupBySubmit = (evt) => {
+    closePopup(evt.currentTarget);
   };
 
   buttonEditProfile.addEventListener('click', () => {
@@ -104,49 +113,24 @@ document.addEventListener('DOMContentLoaded', () => {
   buttonCloseProfile.addEventListener('click', () => {
     closePopup(popupTypeProfile);
   });
-  buttonSaveProfile.addEventListener('click', () => {
-    closePopup(popupTypeProfile);
-  });
   buttonAddNewPlace.addEventListener('click', () => {
     openPopup(popupTypeNewPlace);
   });
   buttonCloseNewPlace.addEventListener('click', () => {
     closePopup(popupTypeNewPlace);
   });
-  buttonMakeNewPlace.addEventListener('click', () => {
-    closePopup(popupTypeNewPlace);
-  });
-  popupTypeProfile.addEventListener('click', (evt) => {
-    if(evt.target == evt.currentTarget){
-      closePopup(popupTypeProfile);
-    };
-  });
-  popupTypeNewPlace.addEventListener('click', (evt) => {
-    if(evt.target == evt.currentTarget){
-      closePopup(popupTypeNewPlace);
-    };
-  });
-  popupWithPhoto.addEventListener('click', (evt) => {
-    if(evt.target == evt.currentTarget){
-      closePopup(popupWithPhoto);
-    };
-  });
+    
+  popupTypeProfile.addEventListener('submit', handleClosePopupBySubmit);
+  popupTypeNewPlace.addEventListener('submit', handleClosePopupBySubmit);
+  popupTypeProfile.addEventListener('click', handleClosePopupByClick);
+  popupTypeNewPlace.addEventListener('click', handleClosePopupByClick);
+  popupWithPhoto.addEventListener('click', handleClosePopupByClick);
   
-  document.addEventListener('keydown', handlerEscKey);
-
   formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
   photoButtonClose.addEventListener('click', () => {
     closePopup(popupWithPhoto);
   });
-  
-  
-  
+
   render();
 
-
-
-
-
 });
-
-  

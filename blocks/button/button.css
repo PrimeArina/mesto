@@ -1,9 +1,9 @@
 .button{
     background-position: center;
     background-repeat: no-repeat;
-    cursor: url(../../../images/Cursor.svg), pointer;
     border-style: none;
     padding: 0;
     outline: none;
     background-color: transparent;
 }
+
