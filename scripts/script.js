@@ -108,6 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   buttonEditProfile.addEventListener('click', () => {
+    setInputText(popupTypeProfile, popupRedactName, profileInfoName);
+    setInputText(popupTypeProfile, popupRedactStatus, profileInfoStatus);
+    enableSubmitButton(buttonSaveProfile);
     openPopup(popupTypeProfile);
   });
   buttonCloseProfile.addEventListener('click', () => {
