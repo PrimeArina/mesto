@@ -1,5 +1,6 @@
 import {FormValidator} from './FormValidator.js';
-import {Card, initialCards, popupWithPhoto, photoButtonClose} from './Card.js';
+import {Card} from './Card.js';
+import {initialCards, settings} from './constants.js';
 
   const popupTypeProfile = document.querySelector('.popup_type_profile');
   const buttonEditProfile = document.querySelector('.profile-info__edit-button');
@@ -19,14 +20,25 @@ import {Card, initialCards, popupWithPhoto, photoButtonClose} from './Card.js';
   const buttonMakeNewPlace = document.querySelector('.popup__button-save_type_new-place');
   const namingNewPlace = document.querySelector('.popup__redaction-name_new-place');
   const addressNewPlace = document.querySelector('.popup__redaction-status_new-place');
+  const popupWithPhoto = document.querySelector('.popup_type_photo');
+  const photoImg = document.querySelector('.photo__image');
+  const photoText = document.querySelector('.photo__text');
+  const photoButtonClose = document.querySelector('.popup__button-close_type_photo');
+  const formValidatorProfile = new FormValidator(settings, formElementProfile);
+  const formValidatorElementNewPlace = new FormValidator(settings, formElementNewPlace);
   
-  new FormValidator().enableValidation();
+  formValidatorProfile.enableValidation();
+  formValidatorElementNewPlace.enableValidation();
 
-  initialCards.forEach((item) => {
+  const createCard = (item) => {
     const card = new Card(item, '.new-place-template');
     const elementCard = card.generateCard();
-  
-    document.querySelector('.elements').append(elementCard);
+
+    return elementCard;
+  }
+
+  initialCards.forEach((item) => {
+    containerNewPlace.append(createCard(item));
   });
 
   const openPopup = (popup) => {
@@ -62,8 +74,15 @@ import {Card, initialCards, popupWithPhoto, photoButtonClose} from './Card.js';
       '.new-place-template').generateCard()
     );
     formElementNewPlace.reset();
-    new FormValidator()._disableSubmitButton(buttonMakeNewPlace);
+    formValidatorElementNewPlace.disableSubmitButton();
   };
+
+  export const handleOpenPopup = (name, link) => {
+    photoImg.src = link;
+    photoImg.alt = name;
+    photoText.textContent = name;
+    popupWithPhoto.classList.add('popup_opened');
+  }
   
   const handleClosePopupByClick = (evt) => {
     if (evt.target === evt.currentTarget) {
@@ -77,9 +96,9 @@ import {Card, initialCards, popupWithPhoto, photoButtonClose} from './Card.js';
 
   buttonEditProfile.addEventListener('click', () => {
     openPopup(popupTypeProfile);
-    new FormValidator()._setInputText(popupTypeProfile, popupRedactName, profileInfoName);
-    new FormValidator()._setInputText(popupTypeProfile, popupRedactStatus, profileInfoStatus);
-    new FormValidator()._enableSubmitButton(buttonSaveProfile);
+    formValidatorProfile._setInputText(popupTypeProfile, popupRedactName, profileInfoName);
+    formValidatorProfile._setInputText(popupTypeProfile, popupRedactStatus, profileInfoStatus);
+    formValidatorProfile._enableSubmitButton(buttonSaveProfile);
   });
   buttonCloseProfile.addEventListener('click', () => {
     closePopup(popupTypeProfile);
@@ -90,15 +109,19 @@ import {Card, initialCards, popupWithPhoto, photoButtonClose} from './Card.js';
   buttonCloseNewPlace.addEventListener('click', () => {
     closePopup(popupTypeNewPlace);
   });
+  photoButtonClose.addEventListener('click', () => {
+    closePopup(popupWithPhoto);
+  });
     
-  popupTypeProfile.addEventListener('submit', handleClosePopupBySubmit);
-  popupTypeNewPlace.addEventListener('submit', handleClosePopupBySubmit);
   popupTypeProfile.addEventListener('click', handleClosePopupByClick);
   popupTypeNewPlace.addEventListener('click', handleClosePopupByClick);
   popupWithPhoto.addEventListener('click', handleClosePopupByClick);
   
-  formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
-  formElementNewPlace.addEventListener('submit', handleCreateNewItem);
-  photoButtonClose.addEventListener('click', () => {
-    closePopup(popupWithPhoto);
-  });
+  formElementProfile.addEventListener('submit', () => {
+  formProfileSubmitHandler;
+  handleClosePopupBySubmit;
+}); 
+  formElementNewPlace.addEventListener('submit', () => {
+    handleCreateNewItem;
+    handleClosePopupBySubmit;
+});

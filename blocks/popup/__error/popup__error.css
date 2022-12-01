@@ -5,7 +5,9 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-bottom: 30px;
+    margin: 0;
     color: #FF0000;
+    display: block;
+    min-height: 30px;
 }
 
