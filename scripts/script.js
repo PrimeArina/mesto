@@ -32,9 +32,7 @@ import {initialCards, settings} from './constants.js';
 
   const createCard = (item) => {
     const card = new Card(item, '.new-place-template');
-    const elementCard = card.generateCard();
-
-    return elementCard;
+    return card.generateCard();
   }
 
   initialCards.forEach((item) => {
@@ -54,7 +52,7 @@ import {initialCards, settings} from './constants.js';
     evt.preventDefault();
     profileInfoName.textContent = popupRedactName.value;
     profileInfoStatus.textContent = popupRedactStatus.value;
-
+    closePopup(popupTypeProfile);
   };
 
   const handlerEscKey = (evt) => {
@@ -64,17 +62,16 @@ import {initialCards, settings} from './constants.js';
     };
   };
 
-  function handleCreateNewItem(evt){
-    evt.preventDefault();
-    containerNewPlace.prepend(
-      new Card ({
-      link: addressNewPlace.value,
-      name: namingNewPlace.value
-      },
-      '.new-place-template').generateCard()
-    );
-    formElementNewPlace.reset();
-    formValidatorElementNewPlace.disableSubmitButton();
+  function handleCreateNewItem(evt){ 
+    evt.preventDefault(); 
+    containerNewPlace.prepend( 
+    createCard({ 
+      link: addressNewPlace.value, 
+      name: namingNewPlace.value 
+      })); 
+    formElementNewPlace.reset(); 
+    formValidatorElementNewPlace.disableSubmitButton(); 
+    closePopup(popupTypeNewPlace);
   };
 
   export const handleOpenPopup = (name, link) => {
@@ -88,10 +85,6 @@ import {initialCards, settings} from './constants.js';
     if (evt.target === evt.currentTarget) {
       closePopup(evt.currentTarget);
     };
-  };
-
-  const handleClosePopupBySubmit = (evt) => {
-    closePopup(evt.currentTarget);
   };
 
   buttonEditProfile.addEventListener('click', () => {
@@ -117,11 +110,5 @@ import {initialCards, settings} from './constants.js';
   popupTypeNewPlace.addEventListener('click', handleClosePopupByClick);
   popupWithPhoto.addEventListener('click', handleClosePopupByClick);
   
-  formElementProfile.addEventListener('submit', () => {
-  formProfileSubmitHandler;
-  handleClosePopupBySubmit;
-}); 
-  formElementNewPlace.addEventListener('submit', () => {
-    handleCreateNewItem;
-    handleClosePopupBySubmit;
-});
+  formElementProfile.addEventListener('submit', formProfileSubmitHandler); 
+  formElementNewPlace.addEventListener('submit', handleCreateNewItem);
