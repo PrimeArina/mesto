@@ -1,10 +1,9 @@
-import {handleOpenPopup} from './script.js';
-
 export class Card {
-  constructor(data, templateSelector){
+  constructor(data, templateSelector, handleCardClick){
     this._link = data.link;
     this._name = data.name;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate(){
@@ -13,7 +12,7 @@ export class Card {
     return elementCard;
   }
 
-  generateCard() {
+  generateCard(){
     this._element = this._getTemplate();
 
     this._elementImage = this._element.querySelector('.new-place-element__image');
@@ -31,7 +30,10 @@ export class Card {
   _setEventListeners(){
     this._elementHeartButton.addEventListener('click', this._handleLike); 
     this._element.querySelector('.new-place-element__delete-button').addEventListener('click', this._handleDel);
-    this._elementImage.addEventListener('click', () => {handleOpenPopup(this._name, this._link)});
+    this._elementImage.addEventListener('click', () => this._handleCardClick({
+      link: this._link,
+      name: this._name
+  }));
   }
 
   _handleLike(evt){
