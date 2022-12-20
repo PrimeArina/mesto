@@ -1,12 +1,12 @@
 import {FormValidator} from '../components/FormValidator.js'; 
 import {Card} from '../components/Card.js'; 
 import {initialCards, settings, containerNewPlace} from '../utils/constants.js'; 
-import {Section} from '../components/section.js';
+import {Section} from '../components/Section.js';
 import {Popup} from '../components/Popup.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
 import {PopupWithForm} from '../components/PopupWithForm.js'
 import {UserInfo} from '../components/UserInfo.js';
-import './pages/index.css';
+import './index.css';
 
   const popupTypeProfile = document.querySelector('.popup_type_profile'); 
   const buttonEditProfile = document.querySelector('.profile-info__edit-button'); 
