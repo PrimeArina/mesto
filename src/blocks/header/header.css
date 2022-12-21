@@ -3,10 +3,8 @@
     max-width: 880px;
     min-height: 74px;
     padding: 0;
-    display: flex;
+    display: flex-start;
     flex-direction: row;
-    justify-content: start;
-    justify-self: start;
     border-bottom: solid 1px #545454;
   }
   
