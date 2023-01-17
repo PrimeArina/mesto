@@ -26,7 +26,7 @@ export const initialCards = [
   ];
   
   export const settings = {
-    formSelector: '.popup__container',
+    formSelector: '.popup__form',
     inputSelector: '.popup__entry-field',
     submitButtonSelector: '.popup__button-save',
     inactiveButtonClass: 'popup__button-save_invalid',
@@ -35,7 +35,7 @@ export const initialCards = [
   }
 
   
-  export const containerNewPlace = document.querySelector('.elements')
+  
 
   export const popupTypeProfile = document.querySelector('.popup_type_profile');
   export const buttonEditProfile = document.querySelector('.profile-info__edit-button');

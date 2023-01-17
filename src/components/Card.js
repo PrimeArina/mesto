@@ -27,8 +27,8 @@ export class Card {
     return this._element;
   } 
 
-  _setEventListeners(){
-    this._elementHeartButton.addEventListener('click', this._handleLike); 
+  _setEventListeners(){ 
+    this._elementHeartButton.addEventListener('click', () => this._handleLike());
     this._element.querySelector('.new-place-element__delete-button').addEventListener('click', this._handleDel);
     this._elementImage.addEventListener('click', () => this._handleCardClick({
       link: this._link,
@@ -36,11 +36,12 @@ export class Card {
   }));
   }
 
-  _handleLike(evt){
-    evt.currentTarget.classList.toggle('new-place-element__heart-button_active');
+  _handleLike(){
+    this._elementHeartButton.classList.toggle('new-place-element__heart-button_active');
   };
 
   _handleDel(){
     this._element.remove();
+    this._element = null;
   };
 }

@@ -20,7 +20,7 @@ _showInputError(inputElement, errorMessage){
     errorElement.textContent = '';
   };
 
-  _setInputText(inputElement){
+  setInputText(inputElement){
     if (inputElement.validity.valid) {
       this._hideInputError(inputElement);
     };
@@ -54,7 +54,7 @@ _showInputError(inputElement, errorMessage){
   };
 
   disableSubmitButton(){
-    this._buttonElement.disabled = 'disabled';
+    this._buttonElement.disabled = true;
     this._buttonElement.classList.add(this._settings.inactiveButtonClass);
   };
 
