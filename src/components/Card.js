@@ -29,7 +29,7 @@ export class Card {
 
   _setEventListeners(){ 
     this._elementHeartButton.addEventListener('click', () => this._handleLike());
-    this._element.querySelector('.new-place-element__delete-button').addEventListener('click', this._handleDel);
+    this._element.querySelector('.new-place-element__delete-button').addEventListener('click', () => this._handleDel());
     this._elementImage.addEventListener('click', () => this._handleCardClick({
       link: this._link,
       name: this._name

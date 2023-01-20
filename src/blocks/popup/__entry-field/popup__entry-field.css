@@ -10,3 +10,9 @@
   padding-bottom: 13px;
   margin: 0;
 }
+
+@media screen and (min-width: 280px) and (max-width: 500px) {
+  .popup__entry-field{
+  width: 238px;
+  }
+}
