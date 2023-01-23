@@ -19,7 +19,6 @@ import './index.css';
   const formValidatorElementNewPlace = new FormValidator(settings, formElementNewPlace); 
   const popupProfileWithForm = new PopupWithForm('.popup_type_profile', handlerFormProfile);
   const popupNewPlaceWithForm = new PopupWithForm('.popup_type_new-place', handlerCreateNewItem);
-  const popupPhotoWithForm = new PopupWithForm('.popup_type_photo', handleCardClick);
   const popupWithImage = new PopupWithImage('.popup_type_photo');
   const userInfo = new UserInfo({
     elementNameSelector:'.profile-info__name', 
@@ -73,4 +72,4 @@ import './index.css';
 
   popupProfileWithForm.setEventListenersSubmit();
   popupNewPlaceWithForm.setEventListenersSubmit();
-  popupPhotoWithForm.setEventListenersSubmit();
+  popupWithImage.setEventListeners();
