@@ -41,9 +41,8 @@ import './index.css';
     renderer: createCard}, '.elements');
   cardsAdd.renderAllItems();
 
-  function handlerCreateNewItem(card){
-    containerNewPlace.prepend(createCard(card));
-    formValidatorElementNewPlace.disableSubmitButton();
+  function handlerCreateNewItem(item){
+    cardsAdd.addItem(createCard(item));
     popupNewPlaceWithForm.close();
   }; 
 
@@ -52,11 +51,9 @@ import './index.css';
     popupProfileWithForm.close();
   };
 
-  buttonEditProfile.addEventListener('click', () => { 
+  buttonEditProfile.addEventListener('click', () => {
     popupProfileWithForm.open();
     submitHandlerFormProfile();
-    formValidatorProfile.setInputText(inputValue); 
-    formValidatorProfile._enableSubmitButton(buttonSaveProfile);
   });
 
   const submitHandlerFormProfile = () => {
@@ -67,9 +64,10 @@ import './index.css';
   }
 
   buttonAddNewPlace.addEventListener('click', () => { 
-    popupNewPlaceWithForm.open(); 
+    formValidatorElementNewPlace.disableSubmitButton();
+    popupNewPlaceWithForm.open();
   }); 
 
-  popupProfileWithForm.setEventListenersSubmit();
-  popupNewPlaceWithForm.setEventListenersSubmit();
+  popupProfileWithForm.setEventListeners();
+  popupNewPlaceWithForm.setEventListeners();
   popupWithImage.setEventListeners();
